@@ -1,4 +1,4 @@
-# Yummy Design — Claude Code plugins
+# Yummy Design, Claude Code plugins
 
 Design tooling for Claude Code, built for designers rather than for engineers who happen to design.
 
@@ -6,11 +6,11 @@ Design tooling for Claude Code, built for designers rather than for engineers wh
 
 ## Install
 
-> **These are messages to Claude, not commands to your computer.** You type them at Claude's own prompt — the same place you'd type "help me with this screen." That works identically whether you run Claude Code in a terminal or in the desktop app. If you'd rather run it from a shell instead, see Option 3.
+> **These go to Claude rather than to your computer.** You type them at Claude's own prompt, the same place you'd type "help me with this screen." That works identically whether you run Claude Code in a terminal or in the desktop app. If you'd rather run it from a shell, see option 3.
 
-### Option 1 — Send two messages (easiest, works everywhere)
+### Option 1: send two messages
 
-Open Claude Code and send:
+The easiest route, and it works everywhere. Open Claude Code and send:
 
 ```
 /plugin marketplace add yummylabs-coder/yummy-design-plugins
@@ -24,13 +24,13 @@ Then:
 
 That's it. If Claude says *"Run /reload-plugins to activate"*, send that too.
 
-### Option 2 — Click through the desktop app
+### Option 2: click through the desktop app
 
-In the Claude Code desktop app, click the **+** button next to the message box → **Plugins** → **Add plugin**. You'll get a browser showing what each plugin installs and what it costs you in context.
+In the Claude Code desktop app, click the **+** button next to the message box, then **Plugins**, then **Add plugin**. You'll get a browser showing what each plugin installs and what it costs you in context.
 
-You'll still need to add the marketplace once using the first line from Option 1 — after that, everything is clicking, including updates.
+You'll still need to add the marketplace once using the first line from option 1. After that, everything is clicking, including updates.
 
-### Option 3 — From a terminal, without opening Claude
+### Option 3: from a terminal, without opening Claude
 
 If you live in the terminal, install it straight from your shell:
 
@@ -39,21 +39,21 @@ claude plugin marketplace add yummylabs-coder/yummy-design-plugins
 claude plugin install design-context@yummy-design
 ```
 
-This installs to user scope by default — add `--scope project` to share it with everyone on a repo. It loads the next time you start Claude Code, or run `/reload-plugins` in a session that's already open.
+This installs to user scope by default. Add `--scope project` to share it with everyone on a repo. It loads the next time you start Claude Code, or run `/reload-plugins` in a session that's already open.
 
-### Option 4 — No typing at all
+### Option 4: no typing at all
 
-1. Click the green **Code** button at the top of this page → **Download ZIP**
+1. Click the green **Code** button at the top of this page, then **Download ZIP**
 2. Unzip it, and open `plugins/design-context/skills/`
-3. In Finder, choose **Go → Go to Folder** and type `~/.claude/skills`
+3. In Finder, choose **Go**, then **Go to Folder**, and type `~/.claude/skills`
 4. Drag the `design-context-setup` folder into it
 5. Restart Claude Code
 
-Works immediately. The trade-off: you won't get updates automatically — you'd re-download when this repo changes.
+Works immediately. The trade-off is that you won't get updates automatically, so you'd re-download when this repo changes.
 
 ### Using it
 
-Once installed, either ask Claude something like *"help me set up this project"*, or invoke it directly:
+Once installed, either ask Claude to help you set up the project, or invoke it directly:
 
 ```
 /design-context:design-context-setup
@@ -71,21 +71,21 @@ To update later:
 
 ### `design-context`
 
-Most designers know their product and their design rules perfectly well. What they don't know is which file each piece belongs in — and that uncertainty is enough to stop them setting anything up at all.
+Most designers know their product and their design rules perfectly well. What they don't know is which file each piece belongs in, and that uncertainty is enough to stop them setting anything up at all.
 
-So Claude ends up guessing. It invents a hex that's *nearly* your green, rebuilds a component you already have, writes copy in a voice that isn't yours, and you correct the same three things every session.
+So Claude guesses. It invents a hex that's *nearly* your green, rebuilds a component you already have, and writes copy in a voice that isn't yours. Then it hands you `placeholder.jpg` and lorem ipsum while the real thing sits two folders away.
 
-This fixes the setup, not the prompt.
+This fixes the setup rather than the prompt.
 
-#### What it actually does
+#### What it does
 
-**It interviews you in plain language.** Seven questions, one at a time, no form. What are you building, where does your design system live, what's it being built in, and — the one that matters most — *what do you find yourself explaining to Claude over and over?* Whatever you repeat is by definition something that should be written down once.
+**It interviews you in plain language.** Seven questions, one at a time, with no form to fill in. What are you building, where does your design system live, what's it being built in, and the one that matters most: what do you find yourself explaining to Claude over and over? Whatever you repeat is by definition something that should be written down once.
 
-**It sorts out connections before files.** Which MCP servers are actually worth having (two, mostly), and which Figma server given your seat — because the official one caps free and Collab seats at about six calls a month, and most designers hit that and conclude Figma MCP is broken.
+**It sorts out connections before files.** Which MCP servers are worth having, which is usually two, and which Figma server suits your seat. The official one caps free and Collab seats at about six calls a month, so most designers hit that wall and conclude Figma MCP is broken.
 
-**It shows you the whole scaffold as a map** — including the parts you shouldn't build yet — so you can see the shape before deciding anything.
+**It shows you the whole scaffold as a map,** including the parts you shouldn't build yet, so you can see the shape before deciding anything.
 
-**It reads your actual design system** instead of asking you to describe it from memory.
+**It reads your real design system** rather than asking you to describe it from memory.
 
 **It drafts the files with you, one at a time,** and never invents a rule you didn't give it.
 
@@ -117,7 +117,7 @@ You:     Mostly which token to use where. And that I want it to stay
 
 ### The map
 
-Rather than a list of files you now owe someone, you get your position marked on the whole thing:
+You get your position on the whole thing rather than a list of files you now owe someone:
 
 ```
 ●  have it     ◐  do now     ○  later (trigger)     ✕  not for you
@@ -132,31 +132,31 @@ Rather than a list of files you now owe someone, you get your position marked on
 
 ◐  design/exemplars/            annotated examples of what good means
 ◐  design/assets/               real copy + imagery, so no placeholders
-●  design/specs/                empty on purpose — one per screen
+●  design/specs/                empty on purpose, one per screen
 ○  design/research/             after your first user interviews
 ✕  design/decisions/            two people; pure overhead
 
-◐  tokens/tokens.json           you have variables — export them (DTCG)
+◐  tokens/tokens.json           you have variables, so export them (DTCG)
 ○  .claude/skills/              when you've explained the same thing 3×
 ```
 
-You move anything between buckets. Say *remove it*, *help me create it now*, or *save it for later*, and the decisions get written down — including the no's, so nothing gets re-suggested at you next month.
+You move anything between buckets by saying *remove it*, *help me create it now*, or *save it for later*. The decisions get written down, including the no's, so nothing gets re-suggested at you next month. Anything deferred gets a trigger attached, because "later" with no condition never arrives.
 
 ### Reading your system
 
-If Figma's connected, it goes and looks before asking you anything:
+If Figma is connected, it goes and looks before asking you anything:
 
 ```
-47 colour variables across two collections. 12 have descriptions.
-Naming is literal — green/600, green/700 — with no semantic layer,
-so nothing in the file says which one is the action colour. That's
-why colour gets applied inconsistently: there's no right answer to
+47 color variables across two collections. 12 have descriptions.
+Naming is literal, green/600 and green/700, with no semantic layer,
+so nothing in the file says which one is the action color. That's
+why color gets applied inconsistently: there's no right answer to
 find, only a nearest match.
 
 Want me to propose descriptions for the 35 without them?
 ```
 
-You're correcting a finding instead of writing an essay about your colour philosophy. And the fix improves the system itself — every description added is a question nobody has to answer again.
+You're correcting a finding, which is far easier than composing your color rules from nothing. The fix also improves the system itself, because every description you add is a question nobody has to answer again.
 
 ### What you end up with
 
@@ -169,46 +169,46 @@ How we decide here. What we *have* lives in Figma and in
 tokens.json, not in this file.
 
 ## Always
-- Use the values that exist. If one isn't in the system, say so —
-  never approximate with a near match.
+- Use the values that exist. If one isn't in the system, say so,
+  and never approximate with a near match.
 
 ## When something doesn't exist yet
 - Build it from existing tokens. Push the system, don't leave it.
 - Say clearly that it's new, and why the existing pieces didn't cover it.
 
 ## Never
-- Never quietly deviate. An unflagged deviation is how a system rots.
+- Never deviate without flagging it. That's how a system rots.
 
-> TODO: voice — needs a real copy sample before this can be written.
+> TODO: voice. Needs a real copy sample before this can be written.
 ```
 
-That `TODO` is deliberate. You didn't describe your voice, so it didn't invent one — because you'd read invented rules back in six months and assume they were yours.
+That `TODO` is deliberate. You hadn't described your voice, so it didn't invent one. Invented rules are the worst outcome here, because you read them back in six months and assume they were yours.
 
 ---
 
 ## The ideas behind it
 
-**Context is finite, and performance degrades as it fills.** Everything here follows from that. Files that load every session stay short; everything else gets fetched only when relevant.
+**Context is finite, and quality degrades as it fills.** Everything here follows from that. Files that load every session stay short, and everything else gets fetched only when it's relevant.
 
-**How you decide vs. what you have.** Principles go in files that always load. Inventory — component lists, token values, screen specs — gets fetched. The test: *would this line still be true if you added twenty components tomorrow?*
+**How you decide versus what you have.** Principles go in files that always load, while inventory like component lists, token values and screen specs gets fetched. The test is whether a line would still be true if you added twenty components tomorrow.
 
-**A rule is a fact, a skill is a procedure.** "Never use a raw hex" is a rule. "How we write an audio guide script" is a skill. Both should be written from a real failure, not from imagination.
+**A rule states a fact, whereas a skill describes a procedure.** "Never use a raw hex" is a rule, and "how we write an audio guide script" is a skill. Both should come from a real failure rather than from imagination.
 
-**Show, don't ask.** Nobody can answer "what are your colour rules?" cold. You know it when you see it. So it goes and looks first.
+**Look before you ask.** Nobody can answer "what are your color rules?" cold, because you know it when you see it. So it goes and reads the system first.
 
-**Every line has to earn its place.** The test for anything in an always-loaded file: *would removing this cause Claude to make a mistake?* If not, it's noise — and a bloated file means your actual rules get ignored.
+**Every line earns its place.** The test for anything in an always-loaded file is whether removing it would cause Claude to make a mistake, and a bloated file means your real rules get ignored anyway.
 
 ---
 
 ## The seven phases
 
-1. **Interview** — plain language, one question at a time
-2. **Connections** — which MCP servers matter, and which Figma server for your seat
-3. **The map** — the whole scaffold at once, with your position on it
-4. **Read what you have** — diagnoses your real design system before drafting rules
-5. **Draft the files** — one at a time, short, nothing invented
-6. **Verification** — the loop that lets Claude check its work against your design
-7. **What comes next** — triggers, so the setup grows from real failures
+1. **Interview**, in plain language, one question at a time
+2. **Connections**, meaning which MCP servers matter and which Figma server suits your seat
+3. **The map**, showing the whole scaffold at once with your position on it
+4. **Read what you have**, diagnosing your real design system before drafting rules
+5. **Draft the files**, one at a time, short, with nothing invented
+6. **Verification**, the loop that lets Claude check its work against your design
+7. **What comes next**, meaning triggers, so the setup grows from real failures
 
 It works with no MCP connections, no codebase, and no design system.
 
@@ -223,6 +223,6 @@ Test changes before pushing by adding the marketplace from a local path:
 /plugin install design-context@yummy-design
 ```
 
-The skill lives at `plugins/design-context/skills/design-context-setup/`. Keep `SKILL.md` short and put detail in `references/` — a skill about avoiding context bloat shouldn't cause any.
+The skill lives at `plugins/design-context/skills/design-context-setup/`. Keep `SKILL.md` short and put detail in `references/`, since a skill about avoiding context bloat shouldn't cause any.
 
 Feedback and issues welcome.
