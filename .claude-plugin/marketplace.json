@@ -1,0 +1,14 @@
+{
+  "name": "yummy-design",
+  "owner": {
+    "name": "Yummy Design"
+  },
+  "plugins": [
+    {
+      "name": "design-context",
+      "source": "./plugins/design-context",
+      "version": "0.1.0",
+      "description": "Sets designers up so Claude Code can be a real design partner: the right connections, a scaffold you can see whole, and files that stay short."
+    }
+  ]
+}

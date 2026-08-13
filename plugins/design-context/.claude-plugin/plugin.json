@@ -1,0 +1,9 @@
+{
+  "name": "design-context",
+  "displayName": "Design Context",
+  "version": "0.1.0",
+  "description": "Sets designers up so Claude Code can be a real design partner: the right connections, a scaffold you can see whole, and files that stay short.",
+  "author": {
+    "name": "Yummy Design"
+  }
+}
