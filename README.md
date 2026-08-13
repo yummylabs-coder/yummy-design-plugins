@@ -6,9 +6,9 @@ Design tooling for Claude Code, built for designers rather than for engineers wh
 
 ## Install
 
-> **These go in Claude's chat box, not a terminal.** Same place you'd type "help me with this screen." If you can send Claude a message, you can install this.
+> **These are messages to Claude, not commands to your computer.** You type them at Claude's own prompt — the same place you'd type "help me with this screen." That works identically whether you run Claude Code in a terminal or in the desktop app. If you'd rather run it from a shell instead, see Option 3.
 
-### Option 1 — Type two messages (easiest, works everywhere)
+### Option 1 — Send two messages (easiest, works everywhere)
 
 Open Claude Code and send:
 
@@ -30,7 +30,18 @@ In the Claude Code desktop app, click the **+** button next to the message box �
 
 You'll still need to add the marketplace once using the first line from Option 1 — after that, everything is clicking, including updates.
 
-### Option 3 — No typing at all
+### Option 3 — From a terminal, without opening Claude
+
+If you live in the terminal, install it straight from your shell:
+
+```bash
+claude plugin marketplace add yummylabs-coder/yummy-design-plugins
+claude plugin install design-context@yummy-design
+```
+
+This installs to user scope by default — add `--scope project` to share it with everyone on a repo. It loads the next time you start Claude Code, or run `/reload-plugins` in a session that's already open.
+
+### Option 4 — No typing at all
 
 1. Click the green **Code** button at the top of this page → **Download ZIP**
 2. Unzip it, and open `plugins/design-context/skills/`
