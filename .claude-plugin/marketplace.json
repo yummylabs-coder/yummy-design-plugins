@@ -9,6 +9,12 @@
       "source": "./plugins/design-context",
       "version": "0.1.0",
       "description": "Sets designers up so Claude Code can be a real design partner: the right connections, a scaffold you can see whole, and files that stay short."
+    },
+    {
+      "name": "figma-component-docs",
+      "source": "./plugins/figma-component-docs",
+      "version": "1.0.1",
+      "description": "Documents design system components in Figma so people and AI agents can both build from them: one shared doc template, a component description dev agents read, and a checker that runs inside Figma."
     }
   ]
 }
