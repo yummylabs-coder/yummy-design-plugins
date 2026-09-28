@@ -22,6 +22,12 @@ Then:
 /plugin install design-context@yummy-design
 ```
 
+For the Figma docs skill, send this one as well:
+
+```
+/plugin install figma-component-docs@yummy-design
+```
+
 That's it. If Claude says *"Run /reload-plugins to activate"*, send that too.
 
 ### Option 2: click through the desktop app
@@ -37,6 +43,7 @@ If you live in the terminal, install it straight from your shell:
 ```bash
 claude plugin marketplace add yummylabs-coder/yummy-design-plugins
 claude plugin install design-context@yummy-design
+claude plugin install figma-component-docs@yummy-design
 ```
 
 This installs to user scope by default. Add `--scope project` to share it with everyone on a repo. It loads the next time you start Claude Code, or run `/reload-plugins` in a session that's already open.
@@ -49,7 +56,11 @@ This installs to user scope by default. Add `--scope project` to share it with e
 4. Drag the `design-context-setup` folder into it
 5. Restart Claude Code
 
+For the Figma docs skill, the folder is `plugins/figma-component-docs/skills/figma-component-docs`.
+
 Works immediately. The trade-off is that you won't get updates automatically, so you'd re-download when this repo changes.
+
+**Using Claude in the browser or the Claude app rather than Claude Code?** Zip the skill folder itself, the one with `SKILL.md` directly inside it, and upload that zip as a skill. Zipping anything higher up the tree won't upload.
 
 ### Using it
 
@@ -57,6 +68,7 @@ Once installed, either ask Claude to help you set up the project, or invoke it d
 
 ```
 /design-context:design-context-setup
+/figma-component-docs:figma-component-docs
 ```
 
 To update later:
@@ -68,6 +80,9 @@ To update later:
 ---
 
 ## What's in it
+
+- **`design-context`** sets your project up so Claude can be a real design partner. It's described below.
+- **`figma-component-docs`** documents your design system components in Figma so people and AI agents can both build from them. [Jump to it](#figma-component-docs).
 
 ### `design-context`
 
@@ -214,6 +229,33 @@ It works with no MCP connections, no codebase, and no design system.
 
 ---
 
+## `figma-component-docs`
+
+Component docs have three readers: a developer's AI agent reading the component description, a person skimming the canvas, and anyone who needs the history. This skill gives each one its own home, builds every doc frame from one shared template, and runs a checker inside Figma that measures each frame against text limits and flags missing interaction behavior and unused component properties.
+
+#### What you need
+
+A Figma MCP that can run plugin code: [Figma Console MCP](https://github.com/southleft/figma-console-mcp) (`figma_execute`) or the official Figma MCP (`use_figma`).
+
+#### How to use it
+
+1. Open your design system file and ask Claude to "set up the doc template". It builds the template, then runs the checker on it. The empty template should fail; that's how you know the checker works.
+2. Restyle the template with your own fonts, colors and variables. Keep the layer names, since the checker finds everything by name.
+3. For each component: "document the Button component".
+
+#### What's inside
+
+```
+figma-component-docs/
+├── SKILL.md                    # the procedure and the traps
+├── references/doc-template.md  # the format, the limits, the interaction contract
+└── scripts/
+    ├── build-template.js       # builds doc/_Template in your file (run once)
+    └── verify.js               # checks a doc frame and its component
+```
+
+---
+
 ## Developing
 
 Test changes before pushing by adding the marketplace from a local path:
@@ -223,6 +265,10 @@ Test changes before pushing by adding the marketplace from a local path:
 /plugin install design-context@yummy-design
 ```
 
-The skill lives at `plugins/design-context/skills/design-context-setup/`. Keep `SKILL.md` short and put detail in `references/`, since a skill about avoiding context bloat shouldn't cause any.
+Each plugin's skill lives under `plugins/<plugin>/skills/`. Keep `SKILL.md` short and put detail in `references/`, since a skill about avoiding context bloat shouldn't cause any.
 
 Feedback and issues welcome.
+
+## License
+
+MIT. Made by Carmen Rincon at Yummy Labs.

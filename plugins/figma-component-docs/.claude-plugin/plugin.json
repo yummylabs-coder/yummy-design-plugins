@@ -1,0 +1,9 @@
+{
+  "name": "figma-component-docs",
+  "displayName": "Figma Component Docs",
+  "version": "1.0.1",
+  "description": "Documents design system components in Figma so people and AI agents can both build from them: one shared doc template, a component description dev agents read, and a checker that runs inside Figma.",
+  "author": {
+    "name": "Yummy Design"
+  }
+}
